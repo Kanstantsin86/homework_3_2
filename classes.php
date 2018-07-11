@@ -198,7 +198,7 @@ voice($willy->voice, $willy->voiceCount);
 
 interface ProductInterface
 {
-    public function discountСalculation();
+    public function inReserve($in_reserve);
 }
 class Product extends Thing implements ProductInterface
 {
@@ -211,16 +211,16 @@ class Product extends Thing implements ProductInterface
         $this->in_reserve = $in_reserve;
     }
     
-    public function discountСalculation ($price, $discount)
+    public function inReserve($in_reserve)
     {
-        echo 'Размер скидки равен ' . ($price*($discount/100) . '$');
+        echo 'Количество товара на складе -  ' . ($in_reserve) . 'единиц';
     }
 }
 
 $phpStorm = new Product ('programs', 'phpStorm', 0, 20, 0, 199.99, 0, 
     2000);
-discountСalculation($phpStorm->price, $phpStorm->discount);
+inReserve($phpStorm->in_reserve);
 
 $cheesburger = new Product ('food', 'Чизбургер Де Люкс', 0, 20, 15, 2.50, 0, 
     35);
-discountСalculation($cheesburger->price, $cheesburger->discount);
+inReserve($cheesburger->in_reserve);
